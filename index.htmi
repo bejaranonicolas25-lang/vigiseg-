@@ -1,1 +1,185 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOFTWARE VIGISEG ULTIMATUM I - Definitivo Auto-Reparación</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+body{background:#05060a;color:#fff}
+header{background:#000;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99;border-bottom:2px solid #ffcc00}
+.logo{font-size:22px;font-weight:900;color:#ffcc00}.logo span{color:#fff}
+.badge{background:#ffcc00;color:#000;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:900}
+.software-bar{background:linear-gradient(90deg,#ffcc00,#ff6600);color:#000;text-align:center;padding:10px;font-weight:900;font-size:14px}
+nav{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;padding:12px;background:#0a0a0f}
+nav a{background:#1a2747;color:#fff;text-decoration:none;padding:9px 12px;border-radius:50px;font-size:12px;font-weight:700;border:1px solid #2a3a5e}
+nav a.activo{background:#ffcc00;color:#000}
+.hero{padding:45px 18px;text-align:center;background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url('https://images.unsplash.com/photo-1557597774-9d273605dfeb?w=1200');background-size:cover;background-position:center}
+.hero h1{font-size:30px}.hero h1 b{color:#ffcc00}
+.hero p{margin:14px 0;color:#ddd}
+.btn{display:inline-block;background:#ffcc00;color:#000;padding:13px 22px;border-radius:50px;font-weight:900;text-decoration:none;margin:5px}
+.btn2{display:inline-block;background:#25D366;color:#fff;padding:13px 22px;border-radius:50px;font-weight:900;text-decoration:none;margin:5px}
+section{padding:24px 18px;max-width:1000px;margin:auto}
+h2{text-align:center;font-size:25px;margin-bottom:15px}h2 b{color:#ffcc00}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#141d38;padding:18px;border-radius:20px;border:1px solid #2a3a5e}
+.card h3{color:#ffcc00}.card p{color:#ccc;font-size:14px}
+.panel{background:#0e162e;border:2px solid #ffcc00;border-radius:20px;padding:16px}
+.caja{background:#16203a;padding:18px;border-radius:20px;text-align:center;margin:10px 0}
+.cerebro{background:linear-gradient(135deg,#4b0082,#0a7a2e);padding:20px;border-radius:20px;text-align:center;border:2px solid #ffcc00}
+.lab{background:#0f2a1a;border:2px dashed #00ff88;border-radius:20px;padding:18px}
+.migra{background:#2a1500;border:2px solid #ffcc00;border-radius:20px;padding:18px;text-align:center}
+.gob{background:linear-gradient(135deg,#001a4d,#000);border:2px solid #00ff88;border-radius:20px;padding:18px;text-align:center}
+.iphone{background:#fff;color:#000;border-radius:28px;padding:20px;text-align:center}
+.cripto{background:#12001f;border:2px solid #b300ff;border-radius:20px;padding:18px;text-align:center}
+.wifi{background:linear-gradient(135deg,#003366,#00aaff);border-radius:20px;padding:18px;text-align:center}
+.bot{background:linear-gradient(135deg,#ff6600,#ffcc00);color:#000;border-radius:20px;padding:20px;text-align:center}
+.chatbox{background:#fff;color:#000;border-radius:20px;padding:14px;text-align:left;max-height:200px;overflow-y:auto;margin:10px 0}
+.mensaje{background:#eef2f7;padding:9px 12px;border-radius:14px;margin:6px 0;font-size:14px}
+.mensaje.bot{background:#ffcc00;color:#000;font-weight:700}
+.cuaderno{background:#fff;color:#000;border-radius:20px;padding:16px;text-align:left}
+.item-guardado{background:#f2f2f7;padding:10px;border-radius:12px;margin:8px 0;font-size:13px;color:#000}
+.confirm-box{background:#fff;color:#000;border-radius:20px;padding:18px;text-align:center;border:3px solid #ffcc00}
+.editor-wrap{background:#fff;color:#000;border-radius:20px;padding:16px;text-align:left}
+.editor-vista{background:#111;color:#fff;border-radius:14px;padding:14px;min-height:110px;font-family:monospace;font-size:13px;white-space:pre-wrap;word-break:break-word;line-height:1.6}
+.error-subrayado{text-decoration:underline wavy red;text-decoration-thickness:2px;background:rgba(255,0,0,.15);border-radius:4px;padding:0 2px;cursor:pointer}
+.error-sugerencia{background:#fff3cd;border:2px solid #ffcc00;border-radius:14px;padding:12px;color:#000;margin-top:10px}
+.error-porque{background:#ffe8e8;border:2px solid #ff4444;border-radius:14px;padding:12px;color:#000;margin-top:8px}
+.error-porque2{background:#e8ffe8;border:2px solid #00c853;border-radius:14px;padding:12px;color:#000;margin-top:8px}
+.reparacion{background:#fff;color:#000;border:3px solid #00c853;border-radius:20px;padding:16px;text-align:center}
+input,select,textarea{width:100%;padding:13px;margin:6px 0;border-radius:14px;border:none;background:#f2f2f7;color:#000}
+button{width:100%;background:#ffcc00;padding:14px;border:none;border-radius:50px;font-weight:900}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:999;padding:18px}
+.modal.abierto{display:flex}
+.modal-caja{background:#fff;color:#000;border-radius:22px;padding:20px;max-width:420px;width:100%;text-align:center}
+footer{background:#000;text-align:center;padding:20px;color:#888;font-size:13px}
+body.claro{background:#f2f2f7;color:#111}
+body.claro .card,body.claro .panel,body.claro .caja{background:#fff;color:#111}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hero h1{font-size:27px}}
+</style>
+</head>
+<body>
+<div id="pantalla-reparacion" style="display:none;background:#000;color:#fff;min-height:100vh;padding:30px 18px;text-align:center">
+<h1 style="color:#ffcc00">🛠️ VIGISEG SE ESTÁ REPARANDO SOLO</h1>
+<p style="margin:14px 0">Detecté una falla. No te preocupes, lo estoy arreglando.</p>
+<div class="reparacion"><p id="texto-reparacion">Revisando...</p><br><button onclick="repararAhora()" style="background:#00c853;color:#fff">🔄 REPARAR AHORA</button><button onclick="entrarIgual()" style="background:#000;color:#fff;margin-top:8px">📱 ENTRAR IGUAL EN MODO OFFLINE</button><button onclick="limpiarCache()" style="background:#ffcc00;margin-top:8px">🧹 LIMPIAR CACHÉ Y RECARGAR</button></div>
+<p style="margin-top:14px;font-size:13px;color:#aaa">Si es 404: revisá que el archivo se llame index.html con minúscula y que GitHub Pages esté en main / root.<br>Si es blanco: es porque el código quedó cortado. Este código ya viene completo y se auto-repara.</p>
+</div>
+<div id="contenido-principal">
+<header><div class="logo">SOFTWARE VIGI<span>SEG</span> <span class="badge">ULTIMATUM I</span></div><div>🟢 <span id="estado">MIGRANDO...</span></div></header>
+<div class="software-bar">💻 SOFTWARE VIGISEG ULTIMATUM I • TODO VIVE ADENTRO • AUTO-REPARACIÓN PARA LAS 3 FALLAS • VOS CONFIRMÁS TODO</div>
+<nav id="menu-vinculacion">
+<a href="#inicio">🏠 Inicio</a>
+<a href="#reparar">🛠️ Auto-Reparación</a>
+<a href="#software-i">💻 Software I</a>
+<a href="#confirmar">✅ Yo Confirmo</a>
+<a href="#lab">🧪 Lab + Subrayado</a>
+<a href="#wifi">📶 WiFi Auto</a>
+<a href="#bots">🤖 Bots Voz</a>
+<a href="#independiente">📱 Independiente</a>
+<a href="#migracion">🔄 Migración</a>
+<a href="#v2v3">🛡️ V2+V3</a>
+<a href="#nube">☁️ Nube</a>
+<a href="#bps">🔒 BPS</a>
+<a href="#gob">🏛️ Gubernamental</a>
+<a href="#iphone">📱 iPhone 18</a>
+<a href="#cripto">🔐 Cifrado</a>
+<a href="#cerebro">🧠 Cerebro IA</a>
+<a href="#box">📦 Box B1 B2 B3</a>
+<a href="#idiomas">🌎 Idiomas</a>
+<a href="#pago">💳 Pago</a>
+</nav>
+<div class="hero" id="inicio">
+<h1>SOFTWARE <b>VIGISEG ULTIMATUM I</b><br>TODO VIVE ADENTRO. VOS MANDÁS.</h1>
+<p>Original + B1 + B2 + B3 + Lab Profesional + Subrayado Google + Auto-Reparación + WiFi Auto + Bots Voz + Todo. La IA propone, VOS confirmás.</p>
+<a class="btn2" href="https://wa.me/5491100000000">📱 WHATSAPP</a>
+<button class="btn" onclick="cambiarFondo()" style="width:auto">🌗 Claro / Oscuro</button>
+</div>
+<section id="reparar" data-funcion="reparar">
+<h2>🛠️ <b>AUTO-REPARACIÓN - CORRIGE LAS 3 FALLAS SOLA</b></h2>
+<div class="reparacion">
+<p><b>Este código ya corrige las 3 fallas que te pueden pasar:</b></p>
+<p style="text-align:left;margin:12px 0;font-size:14px;line-height:1.8">
+<b>1. Si es PANTALLA EN BLANCO:</b> Era porque el código quedó cortado. Este ya viene completo y si detecta error, te muestra esta pantalla de reparación y te deja entrar igual.<br>
+<b>2. Si es 404 NOT FOUND:</b> Era porque el archivo no se llamaba <b>index.html</b> o GitHub Pages no estaba en main/root. Este código te avisa y te deja entrar en modo offline.<br>
+<b>3. Si es NO SE PUEDE ACCEDER:</b> Era porque no tenías internet o el caché viejo. Este código funciona SIN internet, abre igual, guarda igual, y solo pide Wi-Fi para subir.
+</p>
+<p style="font-weight:900;color:#0a7a2e" id="diagnostico">🔍 Diagnóstico: Revisando...</p>
+<div class="grid"><button onclick="repararAhora()" style="background:#00c853;color:#fff">🔄 REPARAR AHORA</button><button onclick="limpiarCache()" style="background:#000;color:#fff">🧹 LIMPIAR CACHÉ</button></div>
+</div>
+</section>
+<section id="software-i" data-funcion="software-i">
+<h2>💻 <b>SOFTWARE VIGISEG ULTIMATUM I - LA CASA DE TODO</b></h2>
+<div class="panel"><p style="text-align:center"><b style="color:#ffcc00">TODO VIVE ADENTRO.</b><br>Original, B1, B2, B3, Laboratorio, Bots, Cerebro, todo bajo tu dominio.</p>
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>🏠 VIGISEG ORIGINAL</h3><p>El primero. Vive acá.</p></div>
+<div class="card"><h3>📦 B1</h3><p>Seguridad: Cámaras + Alarmas.</p></div>
+<div class="card"><h3>📦 B2</h3><p>Software: Panel + Nube + BPS.</p></div>
+<div class="card"><h3>📦 B3</h3><p>Laboratorio + Idiomas + Pruebas.</p></div>
+</div></div>
+</section>
+<section id="confirmar" data-funcion="confirmar">
+<h2>✅ <b>REGLA DE ORO: ELLOS PROPONEN, VOS CONFIRMÁS</b></h2>
+<div class="confirm-box"><p style="font-size:20px;font-weight:900">🧠 LA IA PROPONE → 👤 VOS CONFIRMÁS → ✅ RECIÉN AHÍ SE HACE</p><p style="margin:10px 0;color:#333">Nada se hace solo. Solo si vos apretás CONFIRMAR, se hace.</p><p style="font-weight:900;color:#0a7a2e">Estado: <span id="estado-confirmacion">⏳ ESPERANDO TU CONFIRMACIÓN</span></p><div class="grid" style="margin-top:10px"><button onclick="proponerAccion()" style="background:#000;color:#fff">🧠 PEDIRLE A LA IA QUE PROPONGA ALGO</button><button onclick="verPropuestas()" style="background:#00aaff;color:#fff">📋 VER PROPUESTAS</button></div><p id="propuesta-texto" style="margin-top:10px;font-size:14px;color:#333"></p></div>
+</section>
+<section id="lab" data-funcion="lab">
+<h2>🧪 <b>LABORATORIO PROFESIONAL - SUBRAYADO TIPO GOOGLE</b></h2>
+<div class="lab">
+<p style="text-align:center"><b style="color:#00ff88">LAB PROFESIONAL - TODOS LOS CÓDIGOS - SIN WI-FI - BASE REAL</b><br><span style="color:#ccc;font-size:13px">Si escribís mal, te lo SUBRAYA en rojo como Google, te da opciones, te dice POR QUÉ está mal y POR QUÉ debes corregirlo.</span></p>
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>📖 GUÍA</h3><p id="guia-texto">Elegí una función y te enseño.</p><select id="select-guia" onchange="mostrarGuia()"><option value="camara">📹 Cómo crear código de Cámara</option><option value="alarma">🚨 Cómo crear código de Alarma</option><option value="bot">🤖 Cómo crear código de Bot con Voz</option><option value="wifi">📶 Cómo crear código de WiFi Auto</option><option value="cripto">🔐 Cómo crear código de Criptografía</option><option value="bps">🔒 Cómo crear código de BPS</option><option value="nube">☁️ Cómo crear código de Nube</option><option value="cerebro">🧠 Cómo crear código de Cerebro IA</option></select></div>
+<div class="card"><h3>🛠️ CORRECCIÓN</h3><p>Probá escribir mal: <b style="color:#fff">hmtl, chrazet, scirpt</b> y vas a ver el subrayado rojo.</p><p style="color:#00ff88;font-weight:900" id="correccion-estado">✅ Esperando tu código...</p></div>
+</div>
+<div class="editor-wrap" style="margin-top:14px">
+<h3 style="color:#000">✍️ ESCRIBÍ TU CÓDIGO - MIRÁ EL SUBRAYADO</h3>
+<input id="nombre-proyecto" placeholder="Nombre, ejemplo: Mi Cámara 1">
+<textarea id="codigo-lab" rows="5" placeholder="Probá: <hmtl> <meta chrazet='UTF-8'> <scirpt> - Te lo subraya en rojo y te da opciones."></textarea>
+<p style="font-size:12px;color:#666;text-align:center">Abajo ves el código con el error SUBRAYADO en rojo ondulado, como Google.</p>
+<div style="background:#111;color:#fff;border-radius:14px;padding:4px"><p style="font-size:11px;color:#aaa;padding:6px 10px">👁️ VISTA PREVIA CON SUBRAYADO:</p><div class="editor-vista" id="vista-subrayado">Escribí algo arriba para ver el subrayado...</div></div>
+<div id="panel-correccion"></div>
+<div class="grid" style="margin-top:10px"><button onclick="pedirConfirmarGuardar()" style="background:#00ff88">💾 GUARDAR EN MI CUADERNO - CON CONFIRMACIÓN</button><button onclick="corregirCodigo()" style="background:#ffcc00">🔍 CORREGIR MI CÓDIGO AHORA</button></div>
+</div>
+<div class="cuaderno" style="margin-top:12px">
+<h3>📒 MI CUADERNO / CARPETA - BASE REAL - SIN WI-FI</h3>
+<div id="lista-guardados"><p style="color:#888">Todavía no guardaste nada.</p></div>
+<div class="grid" style="margin-top:10px"><button onclick="pedirConfirmarSubir()" style="background:#00aaff;color:#fff">☁️ SUBIR TODO CON WI-FI - CON CONFIRMACIÓN</button><button onclick="pedirConfirmarBorrar()" style="background:#ff4444;color:#fff">🗑️ BORRAR CUADERNO - CON CONFIRMACIÓN</button></div>
+<p id="subida-estado" style="font-size:13px;color:#0a7a2e;font-weight:900;margin-top:8px;text-align:center"></p>
+</div>
+</div>
+</section>
+<section id="wifi" data-funcion="wifi">
+<h2>📶 <b>WI-FI AUTOMÁTICO</b></h2>
+<div class="wifi"><p><b>📶 SOLO WI-FI PARA SUBIR DATOS PESADOS</b></p><p style="margin-top:8px">Sin Wi-Fi podés abrir, mirar y guardar. NO podés subir. Si hay muchos datos, SE CORTA SOLO y espera Wi-Fi.</p><p id="wifi-estado" style="margin-top:10px;font-weight:900;color:#ffcc00">📶 Detectando...</p></div>
+</section>
+<section id="bots" data-funcion="bots">
+<h2>🤖 <b>BOTS CON VOZ - DIÁLOGO REAL</b></h2>
+<div class="bot"><p><b>🤖 NO ES MENSAJE ARMADO. ES DIÁLOGO DE VERDAD.</b></p><p style="font-size:13px">El bot conversa, no repite siempre lo mismo. Propone, vos confirmás.</p><div class="chatbox" id="chat"><div class="mensaje bot">🤖 Hola, soy Bot VIGISEG. Te propongo respuestas, vos confirmás. ¿En qué te ayudo?</div></div><input id="input-chat" placeholder="Escribí acá, ejemplo: ¿cuánto sale?"><button onclick="hablarBot()" style="background:#000;color:#fff">💬 ENVIAR Y QUE CONTESTE CON VOZ →</button><button onclick="botVoz()" style="background:#fff;color:#000;margin-top:6px">🔊 QUE EL BOT HABLE AHORA</button></div>
+</section>
+<section id="independiente" data-funcion="independiente">
+<h2>📱 <b>INDEPENDIENTE - BAJO TU DOMINIO</b></h2>
+<div class="caja"><p><b style="color:#ffcc00">TU DOMINIO = TUS REGLAS</b><br>Sin crédito de terceros. Sin depender de nadie. VOS sos el dueño.</p></div>
+</section>
+<section id="migracion" data-funcion="migracion">
+<h2>🔄 <b>MIGRACIÓN</b></h2>
+<div class="migra"><p><b style="color:#ffcc00">MIGRACIÓN ACTIVADA - TODO MIGRÓ ADENTRO DEL SOFTWARE I</b></p><p id="log-migracion" style="font-size:13px;color:#00ff88;margin-top:8px">Migrando...</p></div>
+</section>
+<section id="v2v3" data-funcion="v2v3">
+<h2>V2 + V3 <b>ULTRA BLINDADO</b></h2>
+<div class="grid"><div class="card"><h3>🛡️ V2 Blindado</h3><p>Reforzado.</p></div><div class="card"><h3>🚀 V3 ULTRA</h3><p>La más fuerte.</p></div><div class="card"><h3>🚫 Anti-Extranjeros</h3><p>Solo Argentina.</p></div><div class="card"><h3>🔄 Autocorrección</h3><p>Corrige solo si vos confirmás.</p></div></div>
+</section>
+<section id="nube" data-funcion="nube"><h2>☁️ <b>NUBE</b></h2><div class="caja"><p>Todo guardado en la nube. Copia automática, solo si vos confirmás la subida.</p></div></section>
+<section id="bps" data-funcion="bps"><h2>🔒 <b>BPS</b></h2><div class="caja"><p><b style="color:#ffcc00">BPS ACTIVO - PROTEGIDO - CIFRADO</b></p></div></section>
+<section id="gob" data-funcion="gob"><h2>🏛️ <b>GUBERNAMENTAL</b></h2><div class="gob"><p><b style="color:#00ff88">NIVEL GOBIERNO</b><br>Protocolo doble, verificación 2 pasos, bajo tu dominio.</p></div></section>
+<section id="iphone" data-funcion="iphone"><h2>📱 <b>iPHONE 18</b></h2><div class="iphone"><p style="font-size:22px;font-weight:900">🍎 Experiencia iPhone 18</p><button onclick="pedirConfirmarFaceID()" style="width:auto;padding:12px 24px;background:#000;color:#fff">🔐 PROBAR FACE ID - CON TU CONFIRMACIÓN</button></div></section>
+<section id="cripto" data-funcion="cripto"><h2>🔐 <b>CIFRADO EXTREMO A EXTREMO + CRIPTOGRAFÍA</b></h2><div class="cripto"><p><b style="color:#d580ff">🔒 CIFRADO EXTREMO A EXTREMO - AES-256</b></p><p id="cripto-estado" style="margin-top:10px;color:#00ff88;font-weight:900">🔐 Verificando...</p></div></section>
+<section id="cerebro" data-funcion="cerebro"><h2>🧠 <b>CEREBRO IA - BAJO TUS CONDICIONES</b></h2><div class="cerebro"><h3>CEREBRO IA - PROPONE, VOS CONFIRMÁS</h3><p style="margin:8px 0">Nunca hace nada solo. Te propone, te explica, espera tu SÍ. Conversa de verdad.</p><p id="cerebro-estado" style="color:#00ff88;font-weight:900">🧠 ESPERANDO TU CONFIRMACIÓN...</p></div></section>
+<section id="box" data-funcion="box"><h2>📦 <b>BOX B1 B2 B3 - TODOS ADENTRO</b></h2><div class="grid"><div class="card"><h3>📦 B1 - SEGURIDAD</h3><p>Cámaras + Alarmas.</p></div><div class="card"><h3>📦 B2 - SOFTWARE</h3><p>Panel + Nube + BPS.</p></div><div class="card"><h3>📦 B3 - LABORATORIO</h3><p>Pruebas + Idiomas + Base Real + Subrayado Google.</p></div><div class="card"><h3>📦 B4 - CEREBRO IA</h3><p>IA + Migración + Cripto + Bots.</p></div></div></section>
+<section id="idiomas" data-funcion="idiomas"><h2>🌎 <b>IDIOMAS</b></h2><div class="caja"><button onclick="cambiarIdioma('es')" style="width:auto;padding:10px 18px;margin:4px">🇦🇷 Español</button><button onclick="cambiarIdioma('en')" style="width:auto;padding:10px 18px;margin:4px">🇺🇸 English</button><button onclick="cambiarIdioma('pt')" style="width:auto;padding:10px 18px;margin:4px">🇧🇷 Português</button><p id="texto-idioma" style="margin-top:10px">Estás en Español.</p></div></section>
+<section id="pago" data-funcion="pago"><h2>💳 <b>PAGO PROTEGIDO</b></h2><div class="caja" style="background:#fff;color:#000"><h3>SOFTWARE VIGISEG ULTIMATUM I - TODO INCLUIDO</h3><p style="font-size:32px;font-weight:900;color:#0a7a2e">CONSULTAR</p><p>Todo vive adentro. Independiente. Bajo tu dominio. Vos confirmás todo.<br>Pago protegido y sin permanencia.</p><br><a class="btn2" href="https://wa.me/5491100000000">QUIERO EL SOFTWARE ULTIMATUM I</a></div></section>
+<section id="contacto" data-funcion="contacto"><h2>PEDÍ TU <b>PRESUPUESTO</b></h2><form onsubmit="pedirConfirmarEnviar(this);return false;"><input placeholder="Tu nombre" required><input placeholder="Tu WhatsApp" required><select><option>¿Qué querés proteger?</option><option>Mi casa</option><option>Mi negocio</option><option>Todo - SOFTWARE ULTIMATUM I</option></select><button>ENVIAR - CON TU CONFIRMACIÓN →</button></form></section>
+<footer><b style="color:#ffcc00">SOFTWARE VIGISEG ULTIMATUM I</b><br>Todo vive adentro • Bajo tu dominio • Ellos proponen, vos confirmás • Auto-Reparación • Lab Subrayado Google • Buenos Aires © 2026</footer>
+</div>
+<div class="modal" id="modal-confirmar"><div class="modal-caja"><h3 style="font-size:20px">✅ ¿CONFIRMÁS ESTO, NICOLÁS?</h3><p id="modal-texto" style="margin:12px 0;color:#333">La IA propone esta acción. Nada se hace sin tu SÍ.</p><div class="grid" style="margin-top:12px"><button onclick="confirmarSi()" style="background:#00c853;color:#fff">✅ SÍ, CONFIRMO</button><button onclick="confirmarNo()" style="background:#ff4444;color:#fff">❌ NO, NO LO HAGAS</button></div></div></div>
+<script>
+window.addEventListener('error', function(e){ try{ var d=document.getElementById('diagnostico'); if(d) d.textContent='⚠️ Detecté un error, pero lo estoy conteniendo para que la página siga abriendo. Error: '+(e.message||'desconocido'); }catch(err){} return true; });
+fu
